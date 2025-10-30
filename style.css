@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: 'BBH Sans Bogle', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+button {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  columns: inherit;
+  cursor: pointer;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calc-section {
+  width: 500px;
+  height: 600px;
+  background-color: cornflowerblue;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+}
+.display {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: dimgray;
+  color: aliceblue;
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  font-size: 60px;
+  line-height: 0.8;
+  position: relative;
+}
+.display-result {
+  position: absolute;
+  left: 40px;
+  width: calc(100% - 80px);
+  top: 40px;
+  font-size: 25px;
+  text-align: right;
+  z-index: 1;
+  color: rgba(240, 248, 255, 0.6);
+}
+.buttons-group {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+}
+.btn {
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn[data-value='='] {
+  grid-row: span 2;
+}
+.btn[data-value='c'] {
+  grid-column: span 2;
+}
+.btn[data-value='0'] {
+  grid-column: span 2;
+}
