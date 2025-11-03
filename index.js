@@ -5,7 +5,6 @@ const buttonsSection = document.querySelector('.buttons-group');
 const displayResult = document.querySelector('.display-result');
 const numTags = document.querySelectorAll('[data-value]');
 
-let str = '';
 let a = '';
 let b = '';
 let condition = '';
@@ -15,6 +14,7 @@ let is = false;
 //проверка первого введенного символа
 function checkFirstData() {
   if (a == '' && b == '') return false;
+  else if (a && condition && b == '') return false;
   return true;
 }
 
@@ -30,6 +30,7 @@ function setOperator(value) {
   }
   condition = value;
   b = '';
+  console.log('a:' + a + 'b:' + b + 'cond:' + condition);
   displayResult.textContent += value;
 }
 
@@ -53,6 +54,7 @@ function handleEqual() {
   a = res.toString();
   b = '';
   condition = '';
+  console.log('a:' + a + 'b:' + b + 'cond:' + condition);
 }
 
 // очистить всё
@@ -79,7 +81,7 @@ function calculate(a, b, condition) {
       res = +a * +b;
       break;
     case '/':
-      res = +a / +b;
+      res = +b === 0 ? 'Error' : +a / +b;
       break;
   }
   display.textContent = fixedResult(res);
